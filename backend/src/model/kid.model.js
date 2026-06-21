@@ -1,9 +1,8 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('sqlite::memory:');
+import { Sequelize, DataTypes } from "sequelize"
 import { genderList } from "../commen/enum/gender.js"
 import { educationLevel } from "../commen/enum/education-level.js"
 const noData = "not provided !"
-const Kid = sequelize.define(
+export const Kid = sequelize.define(
     'Kid',
     {
         //  KID ID 

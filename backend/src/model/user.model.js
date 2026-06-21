@@ -1,64 +1,79 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('sqlite::memory:');
-
-const User = sequelize.define(
+import { Sequelize, DataTypes } from "sequelize"
+import {userRole} from "../commen/enum/role.js"
+import {statusAccount} from "../commen/enum/status-account.js"
+const noData = "not provided !"
+export const User = sequelize.define(
     'User',
     {
-        // TODO : USER ID 
+        //  USER ID 
         userId: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: false,
-            unique: true
+            unique: true,
+            field:"user_id"
         },
-        // TODO : FIRST NAME 
+        //  FIRST NAME 
         firstName: {
             type: DataTypes.STRING(50),
             allowNull: false,
-            unique: true
+            unique: true,
+            field:"first_name"
         },
-        //  TODO : LAST NAME 
+        //   LAST NAME 
         lastName: {
             type: DataTypes.STRING(50),
             allowNull: false,
-            unique: true
+            unique: true,
+            field:"last_name"
         },
-        // TODO : FULL NAME (VIRTUAL NAME)
+        //  FULL NAME (VIRTUAL NAME)
         fullName: {
             type: DataTypes.VIRTUAL,
             get() {
                 return `${this.firstName} ${this.lastName}`
-            }
+            },
         },
-        // TODO : EMAIL 
+        //  EMAIL 
         email: {
             type: DataTypes.STRING(100),
             allowNull: false,
-            unique: true
+            unique: true,
+
         },
-        // TODO : PASSWORD 
-        password : {
-            type : DataTypes.STRING(8),
-            allowNull:false,
-            get(){
-                return this.password * "*"
+        //  PASSWORD 
+        password: {
+            type: DataTypes.STRING(8),
+            allowNull: false,
+            get() {
+                return  "********"
             }
         },
-        // TODO : PHOTO
-        photo:{
-            type : DataTypes.TEXT,
+        // PHOTO
+        photo: {
+            type: DataTypes.TEXT,
+            defaultValue: noData
         },
-        // TODO : PHONE NUMBER
-        phoneNumber:{
-            type : DataTypes.STRING(11),
-            allowNull:false,
+        //  PHONE NUMBER
+        phoneNumber: {
+            type: DataTypes.STRING(11),
+            allowNull: false,
+            defaultValue: noData,
+            field:"phone_number"
         },
-        role:{
-            type:DataTypes.ENUM("parent","school-admin"),
-            allowNull:false,
-            defaultValue:"parent"
+        //  ROLE
+        role: {
+            type: DataTypes.ENUM(userRole.PARENT,userRole.SCHOOL_ADMISSION,userRole.SCHOOL_ADMIN,userRole.SHADOW,userRole.ADMIN),
+            defaultValue: userRole.PARENT
+        },
+        //  STATUS 
+        status: {
+            type: DataTypes.ENUM(statusAccount.BLOCK,statusAccount.ACTIVE),
+            defaultValue: statusAccount.ACTIVE
         }
 
     },
     {
+        timestamps:true,
+        tableName:"user"
     },
 );
