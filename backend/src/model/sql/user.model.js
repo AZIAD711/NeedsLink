@@ -1,6 +1,6 @@
 import { Sequelize, DataTypes } from "sequelize"
-import {userRole} from "../commen/enum/role.js"
-import {statusAccount} from "../commen/enum/status-account.js"
+import {userRole} from "../../commen/enum/role.js"
+import {statusAccount} from "../../commen/enum/status-account.js"
 const noData = "not provided !"
 export const User = sequelize.define(
     'User',

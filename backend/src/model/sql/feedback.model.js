@@ -1,5 +1,5 @@
 import { Sequelize, DataTypes } from "sequelize"
-import {feedbackList} from "../commen/enum/feedback-list.js"
+import {feedbackList} from "../../commen/enum/feedback-list.js"
 const noData = "not comment provided !"
 export const Feedback = sequelize.define(
     'Feeback',

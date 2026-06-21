@@ -1,5 +1,5 @@
 import { Sequelize, DataTypes } from "sequelize"
-import {feedbackList} from "../commen/enum/feedback-list.js"
+import {feedbackList} from "../../commen/enum/feedback-list.js"
 const noData = "not address provided !"
 export const Parent = sequelize.define(
     'Parent',

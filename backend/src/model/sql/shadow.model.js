@@ -1,6 +1,6 @@
 import { Sequelize, DataTypes } from "sequelize"
-import {feedbackList} from "../commen/enum/feedback-list.js"
-import {specialisTtype} from "../commen/enum/specialist-type.js"
+import {feedbackList} from "../../commen/enum/feedback-list.js"
+import {specialisTtype} from "../../commen/enum/specialist-type.js"
 export const Shadow = sequelize.define(
     'Shadow',
     {

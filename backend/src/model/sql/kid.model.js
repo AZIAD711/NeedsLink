@@ -1,6 +1,6 @@
 import { Sequelize, DataTypes } from "sequelize"
-import { genderList } from "../commen/enum/gender.js"
-import { educationLevel } from "../commen/enum/education-level.js"
+import { genderList } from "../../commen/enum/gender.js"
+import { educationLevel } from "../../commen/enum/education-level.js"
 const noData = "not provided !"
 export const Kid = sequelize.define(
     'Kid',
