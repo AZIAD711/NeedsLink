@@ -19,6 +19,7 @@ export const Feedback = sequelize.define(
         //   COMMENT
         comment: {
             type: DataTypes.TEXT,
+            default : noData
         },
 
     },
