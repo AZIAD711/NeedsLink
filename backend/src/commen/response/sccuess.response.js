@@ -33,3 +33,16 @@ export const dataFoundResponse = ({
     })
 
 }
+// DATA IS UPDATED RESPONSE
+export const dataUpdatedResponse = ({
+    response,
+    message = "data",
+    data
+})=>{
+    return successResponse({
+        response,
+        message: `${message} updated successfully`,
+        data,
+        statusCode: 200
+    })
+}
