@@ -46,3 +46,16 @@ export const dataUpdatedResponse = ({
         statusCode: 200
     })
 }
+// DATA IS DELETED RESPONSE
+export const dataDeletedResponse = ({
+    response,
+    message = "data",
+    data
+})=>{
+    return successResponse({
+        response,
+        message: `${message} deleted successfully`,
+        data,
+        statusCode: 200
+    })
+}
