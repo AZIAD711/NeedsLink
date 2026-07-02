@@ -19,3 +19,17 @@ export const createdDataResponse = ({
         statusCode: 201
     })
 }
+// DATA IS FOUND RESPONSE 
+export const dataFoundResponse = ({
+    response,
+    message = "data",
+    data
+})=>{
+    return successResponse({
+        response,
+        message: `${message} found successfully`,
+        data,
+        statusCode: 200
+    })
+
+}
