@@ -1,8 +1,21 @@
 // GOLBAL SCCUESS RESPONSE
-export const successResponse = ({res, message="done", data,statusCode=200}) => {
-    return res.status(statusCode).json({
+export const successResponse = ({ response, message = "done", data, statusCode = 200 }) => {
+    return response.status(statusCode).json({
         success: true,
         message,
         data
     });
+}
+// DATA IS CREATED RESPONSE
+export const createdDataResponse = ({
+    response,
+    message = "data",
+    data
+}) => {
+    return successResponse({
+        response,
+        message: `${message} created successfully`,
+        data,
+        statusCode: 201
+    })
 }
