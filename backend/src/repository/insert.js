@@ -14,3 +14,19 @@ export const insertOne = async ({
             break
     }
 }
+// INSERT MANY RECORDS INTO TABLE
+export const insertMany = async ({
+    databaseType = "mySql",
+    tableName,
+    attributes,
+}) => {
+    switch (databaseType) {
+        case "mySql":
+            return await tableName.bulkCreate(attributes)
+            break
+
+        case "mongoDB":
+            return await tableName.insertMany(attributes)
+            break
+    }
+}
