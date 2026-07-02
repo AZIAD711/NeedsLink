@@ -27,12 +27,12 @@ export const Kid = sequelize.define(
         },
         // GENDER
         gender: {
-            type: DataTypes.ENUM(genderList.MALE, genderList.FEMALE),
+            type: DataTypes.ENUM(Object.values(genderList)),
             allowNull: false,
         },
         // EDCATION LEVEL 
         educationLevel: {
-            type : DataTypes.ENUM(educationLevel.PREPARATORY,educationLevel.PRIMARY,educationLevel.SECONDARY),
+            type : DataTypes.ENUM(Object.values(educationLevel)),
             allowNull:false,
             field:"eductional_level"
         },

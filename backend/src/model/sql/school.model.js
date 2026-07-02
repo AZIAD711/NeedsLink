@@ -58,12 +58,12 @@ export const School = sequelize.define(
         },
         // RATE 
         rate : {
-            type:DataTypes.ENUM(feedbackList.EXCELLENT,feedbackList.VERY_GOOD,feedbackList.GOOD,feedbackList.BAD),
+            type:DataTypes.ENUM(Object.values(feedbackList)),
             allowNull:false
         },
         // STATUS
         status : {
-            type : DataTypes.ENUM(statusAccount.ACTIVE,statusAccount.BLOCK),
+            type : DataTypes.ENUM(Object.values(statusAccount)),
             default:statusAccount.ACTIVE
         },
         // WEBSITE URL 

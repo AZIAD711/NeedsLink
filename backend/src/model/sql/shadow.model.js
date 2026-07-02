@@ -13,13 +13,13 @@ export const Shadow = sequelize.define(
         },
         //  FEEDBACK LIST 
       feedbackList: {
-            type: DataTypes.ENUM(feedbackListkList.EXCELLENT,feedbackList.VERY_GOOD,feedbackList.GOOD,feedbackList.BAD),
+            type: DataTypes.ENUM(Object.values(feedbackList)),
             field:"feedback_list",
             allowNull:false
         },
         //   specialist_type
         specialistType: {
-            type: DataTypes.ENUM(specialisTtype.AUTISM_SPECIALIST,specialisTtype.BEHAVIOR_THERAPIST,specialisTtype.DOWN_SYNDROME_SPECIALIST,specialisTtype.LEARNING_DIFFICULTIES_SPECIALIST,specialisTtype.OCCUPATIONAL_THERAPIST,specialisTtype.PSYCHOLOGIST,specialisTtype.SPECIAL_EDUCATION,specialisTtype.SPEECH_THERAPIST),
+            type: DataTypes.ENUM(Object.values(specialisTtype)),
             allowNull:false,
             field:"specialist_type",
         },

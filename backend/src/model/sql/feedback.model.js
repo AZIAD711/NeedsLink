@@ -13,7 +13,7 @@ export const Feedback = sequelize.define(
         },
         //  FEEDBACK LIST
         feedbackList: {
-            type: DataTypes.ENUM(feedbackList.EXCELLENT,feedbackList.VERY_GOOD,feedbackList.GOOD,feedbackList.BAD),
+            type: DataTypes.ENUM(Object.values(feedbackList)),
             field:"feedback_list"
         },
         //   COMMENT

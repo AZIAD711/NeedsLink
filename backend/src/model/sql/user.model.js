@@ -62,12 +62,12 @@ export const User = sequelize.define(
         },
         //  ROLE
         role: {
-            type: DataTypes.ENUM(userRole.PARENT,userRole.SCHOOL_ADMISSION,userRole.SCHOOL_ADMIN,userRole.SHADOW,userRole.ADMIN),
+            type: DataTypes.ENUM(Object.values(userRole)),
             defaultValue: userRole.PARENT
         },
         //  STATUS 
         status: {
-            type: DataTypes.ENUM(statusAccount.BLOCK,statusAccount.ACTIVE),
+            type: DataTypes.ENUM(Object.values(statusAccount)),
             defaultValue: statusAccount.ACTIVE
         }
 
