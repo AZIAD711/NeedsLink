@@ -5,12 +5,13 @@ export const insertOne = async ({
     attributes,
 }) => {
     switch (databaseType) {
+        // MYSQL DATABASE
         case "mySql":
             return await tableName.create(attributes)
             break
-
+        // MONGO DATABASE
         case "mongoDB":
-            return await tableName.create(attributes)
+            return await tableName.insertOne(attributes)
             break
     }
 }
@@ -21,10 +22,11 @@ export const insertMany = async ({
     attributes,
 }) => {
     switch (databaseType) {
+        // MYSQL DATABASE
         case "mySql":
             return await tableName.bulkCreate(attributes)
             break
-
+        // MONGO DATABASE
         case "mongoDB":
             return await tableName.insertMany(attributes)
             break
