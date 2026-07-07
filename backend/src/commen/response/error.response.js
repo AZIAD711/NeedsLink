@@ -6,3 +6,17 @@ export const failResponse = ({ response, message = "failed", data, statusCode = 
         data
     });
 }
+// DATA IS NOT FOUND RESPONSE 
+export const dataNotFoundResponse = ({
+    response,
+    message = "data not found",
+    data
+})=>{
+    return failResponse({
+        response,
+        message: `${message} is not found successfully`,
+        data,
+        statusCode: 400
+    })
+
+}
