@@ -16,7 +16,20 @@ export const dataNotFoundResponse = ({
         response,
         message: `${message} is not found successfully`,
         data,
-        statusCode: 400
+    })
+
+}
+// AUTHORIZED RESPONSE 
+export const authorizedResponse = ({
+    response,
+    message = "authorized",
+    data
+})=>{
+    return failResponse({
+        response,
+        message: `${message} Access `,
+        data,
+        statusCode: 404
     })
 
 }
