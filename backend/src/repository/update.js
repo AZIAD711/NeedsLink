@@ -59,3 +59,33 @@ export const updateColumn = async ({
             break;
     }
 }
+// UPDATE MANY COLUMNS IN TABLE
+export const updateColumns = async ({
+    databaseType = "mySql",
+    tableName,
+    columns,
+    whereClause
+}) => {
+    switch (databaseType) {
+        // MYSQL DATABASE
+        case "mySql":
+            const setClause = Object.keys(columns).map(key => `${key} = :${key}`).join(", ");
+            const replacements = { ...columns };
+            return await sequelize.query(
+                `UPDATE ${tableName} SET ${setClause} WHERE ${whereClause}`,
+                { replacements }
+            );
+            break;
+        // MONGO DATABASE
+        case "mongoDB":
+            return await User.updateOne(
+                {
+                    userId: attributes.userId
+                },
+                {
+                    $set: columns
+                }
+            );
+            break;
+    }
+}
