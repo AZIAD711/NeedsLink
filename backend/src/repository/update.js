@@ -28,3 +28,34 @@ export const updatePassword = async ({
             break;
     }
 }
+// UPDATE ONE COLUMN IN TABLE
+export const updateColumn = async ({
+    databaseType = "mySql",
+    tableName,
+    columnName,
+    value,
+    whereClause
+}) => {
+    switch (databaseType) {
+        // MYSQL DATABASE
+        case "mySql":
+            return await sequelize.query(
+                `UPDATE ${tableName} SET ${columnName} = :value WHERE ${whereClause}`,
+                {
+                    replacements: { value }
+                }
+            );
+            break;
+        // MONGO DATABASE
+        case "mongoDB":
+            return await User.updateOne(
+                {
+                    userId: attributes.userId
+                },
+                {
+                    $set: { [columnName]: value }
+                }
+            );
+            break;
+    }
+}
