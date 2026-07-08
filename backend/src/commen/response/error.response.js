@@ -9,7 +9,7 @@ export const failResponse = ({ response, message = "failed", data, statusCode = 
 // DATA IS NOT FOUND RESPONSE 
 export const dataNotFoundResponse = ({
     response,
-    message = "data not found",
+    message = "data",
     data
 })=>{
     return failResponse({
@@ -33,3 +33,15 @@ export const authorizedResponse = ({
     })
 
 }
+// BAD REQUEST RESPONSE
+export const badRequestResponse = ({
+    response,
+    message = "bad request",
+    data
+}) => {
+    return failResponse({
+        response,
+        message,
+        data,
+    });
+};
