@@ -1,6 +1,6 @@
 import { Sequelize, DataTypes } from "sequelize"
-import {statusAccount} from "../../commen/enum/status-account.js"
-import {feedbackList} from "../../commen/enum/feedback-list.js"
+import {statusAccount} from "../../common/enum/status-account.js"
+import {feedbackList} from "../../common/enum/feedback-list.js"
 const noData = "no data provided !"
 export const School = sequelize.define(
     'School',
